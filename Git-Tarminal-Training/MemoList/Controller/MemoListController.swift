@@ -11,6 +11,7 @@ import UIKit
 class MemoListController: UIViewController {
     
     @IBOutlet weak var memoList: UITableView!
+    @IBOutlet weak var addMemoButton: UIBarButtonItem!
     @IBOutlet weak var memoCountLabel: UILabel!
     
     private let dataSource = MemoListDataSource()
@@ -26,11 +27,8 @@ class MemoListController: UIViewController {
         super.viewWillAppear(animated)
         
         // データソース取得
-        self.dataSource.memoList = MemoDataDao.selectObjects()
-        DispatchQueue.main.async {
-            self.memoList.reloadData()
-        }
-       
+        self.reloadMemoList()
+        
         // DB操作後の処理
         if let databaseActionType = self.databaseActionType {
             // エラーチェック
@@ -47,13 +45,14 @@ class MemoListController: UIViewController {
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        memoList.isEditing = editing
+        self.memoList.isEditing = editing
+        self.addMemoButton.title = editing ? "すべて削除" : "メモ追加"
     }
     
     // MARK: - Private
     private func setup() {
-        memoList.dataSource = dataSource
-        memoList.delegate = self
+        self.memoList.dataSource = dataSource
+        self.memoList.delegate = self
         dataSource.delegate = self
         navigationItem.rightBarButtonItem = editButtonItem
         self.updateMemoCount()
@@ -74,6 +73,26 @@ class MemoListController: UIViewController {
         self.memoCountLabel.text = memoCount > 0 ? "\(memoCount)件のメモ" : "メモなし"
     }
     
+    private func reloadMemoList() {
+        self.dataSource.memoList = MemoDataDao.selectObjects()
+        DispatchQueue.main.async {
+            self.memoList.reloadData()
+        }
+    }
+    
+    private func deleteAllAlert() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAllAction = UIAlertAction(title: "すべて削除", style: .destructive) { _ in
+            MemoDataDao.memoDataDaoDelegate = self
+            MemoDataDao.deleteAll()
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(deleteAllAction)
+        actionSheet.addAction(cancelAction)
+        self.present(actionSheet, animated: true)
+    }
+    
     private func successDatabaseAction(databaseActionType: ActionType) {
         switch databaseActionType {
         case .add:
@@ -83,7 +102,11 @@ class MemoListController: UIViewController {
         case .delete:
             print("削除成功")
         case .deleteAll:
-            print("全削除成功")
+            // アニメーション付きで削除
+            for _ in self.dataSource.memoList {
+                self.dataSource.memoList.remove(at: 0)
+                self.memoList.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+            }
         }
         // 件数表示を更新
         self.updateMemoCount()
@@ -93,7 +116,13 @@ class MemoListController: UIViewController {
     
     // MARK: - Action
     @IBAction func addMemo(_ sender: UIBarButtonItem) {
-        transitionMemoDetail(memoData: nil)
+        if self.memoList.isEditing {
+            // 全削除
+            self.deleteAllAlert()
+        } else {
+            // 新規追加
+            self.transitionMemoDetail(memoData: nil)
+        }
     }
     
 }

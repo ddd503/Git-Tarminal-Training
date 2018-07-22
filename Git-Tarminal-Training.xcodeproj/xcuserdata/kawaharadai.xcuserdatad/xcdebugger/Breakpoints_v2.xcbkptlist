@@ -10,11 +10,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "Git-Tarminal-Training/MemoList/Controller/MemoListController.swift"
+<<<<<<< HEAD
             timestampString = "553963871.090564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
             endingLineNumber = "85"
+=======
+            timestampString = "553960063.961423"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+>>>>>>> develop
             landmarkName = "successDatabaseAction(databaseActionType:)"
             landmarkType = "7">
             <Actions>
