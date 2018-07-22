@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4505C73A2104D37300B08542 /* Date+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505C7392104D37300B08542 /* Date+Style.swift */; };
 		452D13FC20FCD53400B5A884 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4564DAB220FCBED5003BE4D5 /* Realm.framework */; };
 		452D13FD20FCD53400B5A884 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4564DAB220FCBED5003BE4D5 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		452D140320FCD6B200B5A884 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 452D140220FCD6B200B5A884 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4505C7392104D37300B08542 /* Date+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Style.swift"; sourceTree = "<group>"; };
 		452D140020FCD66A00B5A884 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		452D140220FCD6B200B5A884 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		452D140520FCE29100B5A884 /* MemoListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListDataSource.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				4564DAB820FCC346003BE4D5 /* RealmDaoHelper.swift */,
+				4505C7392104D37300B08542 /* Date+Style.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				452D140820FCE2DD00B5A884 /* MemoCell.swift in Sources */,
+				4505C73A2104D37300B08542 /* Date+Style.swift in Sources */,
 				4564DAB720FCC116003BE4D5 /* MemoDataDao.swift in Sources */,
 				4564DAB520FCC002003BE4D5 /* Memo.swift in Sources */,
 				452D140C21022B9800B5A884 /* EditMemoController.swift in Sources */,
