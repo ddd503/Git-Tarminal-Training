@@ -85,7 +85,6 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
             }
             return nil
         } catch let error {
-            print("削除エラー：\(error)")
             return error
         }
     }
