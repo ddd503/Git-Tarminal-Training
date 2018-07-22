@@ -54,10 +54,11 @@ class EditMemoController: UIViewController {
 extension EditMemoController: MemoDataDaoDelegate {
    // データベース処理完了通知
     func result(type: ActionType, error: Error?) {
+        // 遷移元のVCを取得して値渡し
         guard
             let navigationController = self.navigationController,
             let memoListController = navigationController.viewControllers[navigationController.viewControllers.count - 2] as? MemoListController else {
-            // 普通に戻る
+            // 何もせずに戻る
             self.navigationController?.popViewController(animated: true)
             return
         }
