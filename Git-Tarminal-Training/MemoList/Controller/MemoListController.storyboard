@@ -122,6 +122,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="メモ" id="Wmq-AW-hYu"/>
                     <connections>
+                        <outlet property="addMemoButton" destination="gLe-NO-D8N" id="o6B-20-yAY"/>
+                        <outlet property="memoCountLabel" destination="lSa-eN-YjT" id="nGh-kA-xva"/>
                         <outlet property="memoList" destination="jzV-Db-q49" id="G0X-tB-tic"/>
                     </connections>
                 </viewController>
