@@ -11,6 +11,7 @@ import UIKit
 class MemoListController: UIViewController {
     
     @IBOutlet weak var memoList: UITableView!
+    @IBOutlet weak var memoCountLabel: UILabel!
     
     private let dataSource = MemoListDataSource()
     var databaseActionType: ActionType?
@@ -55,6 +56,7 @@ class MemoListController: UIViewController {
         memoList.delegate = self
         dataSource.delegate = self
         navigationItem.rightBarButtonItem = editButtonItem
+        self.updateMemoCount()
     }
     
     private func transitionMemoDetail(memoData: Memo?) {
@@ -65,6 +67,11 @@ class MemoListController: UIViewController {
         editMemoController.memoData = memoData
         editMemoController.isEditingMemo = memoData != nil
         self.navigationController?.pushViewController(editMemoController, animated: true)
+    }
+    
+    private func updateMemoCount() {
+        let memoCount = MemoDataDao.selectObjects().count
+        self.memoCountLabel.text = memoCount > 0 ? "\(memoCount)件のメモ" : "メモなし"
     }
     
     private func successDatabaseAction(databaseActionType: ActionType) {
@@ -78,6 +85,8 @@ class MemoListController: UIViewController {
         case .deleteAll:
             print("全削除成功")
         }
+        // 件数表示を更新
+        self.updateMemoCount()
     }
     
     private func failureDatabaseAction(type: ActionType, error: Error) {}
