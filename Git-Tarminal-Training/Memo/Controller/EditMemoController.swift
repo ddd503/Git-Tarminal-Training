@@ -58,7 +58,7 @@ extension EditMemoController: MemoDataDaoDelegate {
         guard
             let navigationController = self.navigationController,
             let memoListController = navigationController.viewControllers[navigationController.viewControllers.count - 2] as? MemoListController else {
-            // 普通に戻る
+            // 普通に戻ると
             self.navigationController?.popViewController(animated: true)
             return
         }
