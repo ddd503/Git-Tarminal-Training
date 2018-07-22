@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		452D13FC20FCD53400B5A884 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4564DAB220FCBED5003BE4D5 /* Realm.framework */; };
+		452D13FD20FCD53400B5A884 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4564DAB220FCBED5003BE4D5 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		452D140320FCD6B200B5A884 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 452D140220FCD6B200B5A884 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		452D140420FCD6BF00B5A884 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452D140220FCD6B200B5A884 /* RealmSwift.framework */; };
+		452D140620FCE29100B5A884 /* MemoListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D140520FCE29100B5A884 /* MemoListDataSource.swift */; };
+		452D140820FCE2DD00B5A884 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D140720FCE2DD00B5A884 /* MemoCell.swift */; };
+		452D140A21022B8700B5A884 /* EditMemoController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452D140921022B8700B5A884 /* EditMemoController.storyboard */; };
+		452D140C21022B9800B5A884 /* EditMemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D140B21022B9800B5A884 /* EditMemoController.swift */; };
+		4564DA8120FBB37C003BE4D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DA8020FBB37C003BE4D5 /* AppDelegate.swift */; };
+		4564DA8820FBB37D003BE4D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4564DA8720FBB37D003BE4D5 /* Assets.xcassets */; };
+		4564DA8B20FBB37D003BE4D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4564DA8920FBB37D003BE4D5 /* LaunchScreen.storyboard */; };
+		4564DA9620FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DA9520FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift */; };
+		4564DAAB20FBB5BC003BE4D5 /* MemoListController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4564DAAA20FBB5BC003BE4D5 /* MemoListController.storyboard */; };
+		4564DAAD20FBB5CB003BE4D5 /* MemoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAAC20FBB5CB003BE4D5 /* MemoListController.swift */; };
+		4564DAB520FCC002003BE4D5 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAB420FCC002003BE4D5 /* Memo.swift */; };
+		4564DAB720FCC116003BE4D5 /* MemoDataDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAB620FCC116003BE4D5 /* MemoDataDao.swift */; };
+		4564DAB920FCC346003BE4D5 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAB820FCC346003BE4D5 /* RealmDaoHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4564DA9220FBB37D003BE4D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4564DA7520FBB37C003BE4D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4564DA7C20FBB37C003BE4D5;
+			remoteInfo = "Git-Tarminal-Training";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		452D13FE20FCD53400B5A884 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				452D140320FCD6B200B5A884 /* RealmSwift.framework in Embed Frameworks */,
+				452D13FD20FCD53400B5A884 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		452D140020FCD66A00B5A884 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		452D140220FCD6B200B5A884 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		452D140520FCE29100B5A884 /* MemoListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListDataSource.swift; sourceTree = "<group>"; };
+		452D140720FCE2DD00B5A884 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		452D140921022B8700B5A884 /* EditMemoController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMemoController.storyboard; sourceTree = "<group>"; };
+		452D140B21022B9800B5A884 /* EditMemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoController.swift; sourceTree = "<group>"; };
+		4564DA7D20FBB37C003BE4D5 /* Git-Tarminal-Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Git-Tarminal-Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4564DA8020FBB37C003BE4D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4564DA8720FBB37D003BE4D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4564DA8A20FBB37D003BE4D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4564DA8C20FBB37D003BE4D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4564DA9120FBB37D003BE4D5 /* Git-Tarminal-TrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Git-Tarminal-TrainingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4564DA9520FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git_Tarminal_TrainingTests.swift; sourceTree = "<group>"; };
+		4564DA9720FBB37D003BE4D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4564DAAA20FBB5BC003BE4D5 /* MemoListController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoListController.storyboard; sourceTree = "<group>"; };
+		4564DAAC20FBB5CB003BE4D5 /* MemoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListController.swift; sourceTree = "<group>"; };
+		4564DAAF20FC6E47003BE4D5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		4564DAB220FCBED5003BE4D5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		4564DAB420FCC002003BE4D5 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		4564DAB620FCC116003BE4D5 /* MemoDataDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDataDao.swift; sourceTree = "<group>"; };
+		4564DAB820FCC346003BE4D5 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4564DA7A20FBB37C003BE4D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				452D140420FCD6BF00B5A884 /* RealmSwift.framework in Frameworks */,
+				452D13FC20FCD53400B5A884 /* Realm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4564DA8E20FBB37D003BE4D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4564DA7420FBB37C003BE4D5 = {
+			isa = PBXGroup;
+			children = (
+				452D140220FCD6B200B5A884 /* RealmSwift.framework */,
+				452D140020FCD66A00B5A884 /* Realm.framework */,
+				4564DA7F20FBB37C003BE4D5 /* Git-Tarminal-Training */,
+				4564DA9420FBB37D003BE4D5 /* Git-Tarminal-TrainingTests */,
+				4564DA7E20FBB37C003BE4D5 /* Products */,
+				4564DAAE20FC6E47003BE4D5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4564DA7E20FBB37C003BE4D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4564DA7D20FBB37C003BE4D5 /* Git-Tarminal-Training.app */,
+				4564DA9120FBB37D003BE4D5 /* Git-Tarminal-TrainingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4564DA7F20FBB37C003BE4D5 /* Git-Tarminal-Training */ = {
+			isa = PBXGroup;
+			children = (
+				4564DAA120FBB398003BE4D5 /* MemoList */,
+				4564DAA520FBB49A003BE4D5 /* Memo */,
+				4564DAA920FBB4FC003BE4D5 /* Helper */,
+				4564DAA820FBB4EB003BE4D5 /* Other */,
+			);
+			path = "Git-Tarminal-Training";
+			sourceTree = "<group>";
+		};
+		4564DA9420FBB37D003BE4D5 /* Git-Tarminal-TrainingTests */ = {
+			isa = PBXGroup;
+			children = (
+				4564DA9520FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift */,
+				4564DA9720FBB37D003BE4D5 /* Info.plist */,
+			);
+			path = "Git-Tarminal-TrainingTests";
+			sourceTree = "<group>";
+		};
+		4564DAA020FBB395003BE4D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				452D140921022B8700B5A884 /* EditMemoController.storyboard */,
+				452D140B21022B9800B5A884 /* EditMemoController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4564DAA120FBB398003BE4D5 /* MemoList */ = {
+			isa = PBXGroup;
+			children = (
+				4564DAA420FBB494003BE4D5 /* Model */,
+				4564DAA320FBB491003BE4D5 /* View */,
+				4564DAA220FBB48D003BE4D5 /* Controller */,
+			);
+			path = MemoList;
+			sourceTree = "<group>";
+		};
+		4564DAA220FBB48D003BE4D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4564DAAA20FBB5BC003BE4D5 /* MemoListController.storyboard */,
+				4564DAAC20FBB5CB003BE4D5 /* MemoListController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4564DAA320FBB491003BE4D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				452D140520FCE29100B5A884 /* MemoListDataSource.swift */,
+				452D140720FCE2DD00B5A884 /* MemoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4564DAA420FBB494003BE4D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4564DAB420FCC002003BE4D5 /* Memo.swift */,
+				4564DAB620FCC116003BE4D5 /* MemoDataDao.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4564DAA520FBB49A003BE4D5 /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				4564DAA720FBB4BB003BE4D5 /* Model */,
+				4564DAA620FBB4B8003BE4D5 /* View */,
+				4564DAA020FBB395003BE4D5 /* Controller */,
+			);
+			path = Memo;
+			sourceTree = "<group>";
+		};
+		4564DAA620FBB4B8003BE4D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4564DAA720FBB4BB003BE4D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4564DAA820FBB4EB003BE4D5 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				4564DA8020FBB37C003BE4D5 /* AppDelegate.swift */,
+				4564DA8720FBB37D003BE4D5 /* Assets.xcassets */,
+				4564DA8920FBB37D003BE4D5 /* LaunchScreen.storyboard */,
+				4564DA8C20FBB37D003BE4D5 /* Info.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		4564DAA920FBB4FC003BE4D5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4564DAB820FCC346003BE4D5 /* RealmDaoHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		4564DAAE20FC6E47003BE4D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4564DAB220FCBED5003BE4D5 /* Realm.framework */,
+				4564DAAF20FC6E47003BE4D5 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4564DA7C20FBB37C003BE4D5 /* Git-Tarminal-Training */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4564DA9A20FBB37D003BE4D5 /* Build configuration list for PBXNativeTarget "Git-Tarminal-Training" */;
+			buildPhases = (
+				4564DA7920FBB37C003BE4D5 /* Sources */,
+				4564DA7A20FBB37C003BE4D5 /* Frameworks */,
+				4564DA7B20FBB37C003BE4D5 /* Resources */,
+				4564DAB120FC6E6E003BE4D5 /* ShellScript */,
+				452D13FE20FCD53400B5A884 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Git-Tarminal-Training";
+			productName = "Git-Tarminal-Training";
+			productReference = 4564DA7D20FBB37C003BE4D5 /* Git-Tarminal-Training.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4564DA9020FBB37D003BE4D5 /* Git-Tarminal-TrainingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4564DA9D20FBB37D003BE4D5 /* Build configuration list for PBXNativeTarget "Git-Tarminal-TrainingTests" */;
+			buildPhases = (
+				4564DA8D20FBB37D003BE4D5 /* Sources */,
+				4564DA8E20FBB37D003BE4D5 /* Frameworks */,
+				4564DA8F20FBB37D003BE4D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4564DA9320FBB37D003BE4D5 /* PBXTargetDependency */,
+			);
+			name = "Git-Tarminal-TrainingTests";
+			productName = "Git-Tarminal-TrainingTests";
+			productReference = 4564DA9120FBB37D003BE4D5 /* Git-Tarminal-TrainingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4564DA7520FBB37C003BE4D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = kawaharadai;
+				TargetAttributes = {
+					4564DA7C20FBB37C003BE4D5 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					4564DA9020FBB37D003BE4D5 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 4564DA7C20FBB37C003BE4D5;
+					};
+				};
+			};
+			buildConfigurationList = 4564DA7820FBB37C003BE4D5 /* Build configuration list for PBXProject "Git-Tarminal-Training" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4564DA7420FBB37C003BE4D5;
+			productRefGroup = 4564DA7E20FBB37C003BE4D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4564DA7C20FBB37C003BE4D5 /* Git-Tarminal-Training */,
+				4564DA9020FBB37D003BE4D5 /* Git-Tarminal-TrainingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4564DA7B20FBB37C003BE4D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				452D140A21022B8700B5A884 /* EditMemoController.storyboard in Resources */,
+				4564DA8B20FBB37D003BE4D5 /* LaunchScreen.storyboard in Resources */,
+				4564DA8820FBB37D003BE4D5 /* Assets.xcassets in Resources */,
+				4564DAAB20FBB5BC003BE4D5 /* MemoListController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4564DA8F20FBB37D003BE4D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4564DAB120FC6E6E003BE4D5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4564DA7920FBB37C003BE4D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				452D140820FCE2DD00B5A884 /* MemoCell.swift in Sources */,
+				4564DAB720FCC116003BE4D5 /* MemoDataDao.swift in Sources */,
+				4564DAB520FCC002003BE4D5 /* Memo.swift in Sources */,
+				452D140C21022B9800B5A884 /* EditMemoController.swift in Sources */,
+				452D140620FCE29100B5A884 /* MemoListDataSource.swift in Sources */,
+				4564DAAD20FBB5CB003BE4D5 /* MemoListController.swift in Sources */,
+				4564DA8120FBB37C003BE4D5 /* AppDelegate.swift in Sources */,
+				4564DAB920FCC346003BE4D5 /* RealmDaoHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4564DA8D20FBB37D003BE4D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4564DA9620FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4564DA9320FBB37D003BE4D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4564DA7C20FBB37C003BE4D5 /* Git-Tarminal-Training */;
+			targetProxy = 4564DA9220FBB37D003BE4D5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4564DA8920FBB37D003BE4D5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4564DA8A20FBB37D003BE4D5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4564DA9820FBB37D003BE4D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4564DA9920FBB37D003BE4D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4564DA9B20FBB37D003BE4D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LVR5UQEHBD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Git-Tarminal-Training/Other/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Git-Tarminal-Training";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4564DA9C20FBB37D003BE4D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LVR5UQEHBD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Git-Tarminal-Training/Other/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Git-Tarminal-Training";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4564DA9E20FBB37D003BE4D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LVR5UQEHBD;
+				INFOPLIST_FILE = "Git-Tarminal-TrainingTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Git-Tarminal-TrainingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Git-Tarminal-Training.app/Git-Tarminal-Training";
+			};
+			name = Debug;
+		};
+		4564DA9F20FBB37D003BE4D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LVR5UQEHBD;
+				INFOPLIST_FILE = "Git-Tarminal-TrainingTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Git-Tarminal-TrainingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Git-Tarminal-Training.app/Git-Tarminal-Training";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4564DA7820FBB37C003BE4D5 /* Build configuration list for PBXProject "Git-Tarminal-Training" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4564DA9820FBB37D003BE4D5 /* Debug */,
+				4564DA9920FBB37D003BE4D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4564DA9A20FBB37D003BE4D5 /* Build configuration list for PBXNativeTarget "Git-Tarminal-Training" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4564DA9B20FBB37D003BE4D5 /* Debug */,
+				4564DA9C20FBB37D003BE4D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4564DA9D20FBB37D003BE4D5 /* Build configuration list for PBXNativeTarget "Git-Tarminal-TrainingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4564DA9E20FBB37D003BE4D5 /* Debug */,
+				4564DA9F20FBB37D003BE4D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4564DA7520FBB37C003BE4D5 /* Project object */;
+}
