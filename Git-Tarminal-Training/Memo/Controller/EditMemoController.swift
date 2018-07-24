@@ -14,6 +14,8 @@ class EditMemoController: UIViewController {
     
     var memoData: Memo?
     var isEditingMemo = false
+    // 編集時に変更の有無をチェックする用
+    var beforeText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,9 @@ class EditMemoController: UIViewController {
     private func setup() {
         // 編集の場合は、編集元のテキストを入れる
         if let memoData = self.memoData {
-            self.memoTextView.text = memoData.memoText
+            self.beforeText = memoData.content == "" ?
+                memoData.title : memoData.title + "\n" + memoData.content
+            self.memoTextView.text = self.beforeText
         }
         self.setupBarButton()
         self.memoTextView.delegate = self
@@ -46,7 +50,7 @@ class EditMemoController: UIViewController {
         
         // 変更前の文字列とのかぶりチェック
         if isEditingMemo {
-            return text != self.memoData?.memoText
+            return text != self.beforeText
         }
         
         return true
@@ -55,11 +59,9 @@ class EditMemoController: UIViewController {
     // MARK: - Action
     @objc func saveMemo(sender: UIBarButtonItem) {
         if self.isEditingMemo {
-            guard let memoData = self.memoData else {
-                return
-            }
-            memoData.memoText = self.memoTextView.text
+            guard let memoData = self.memoData else { return }
             memoData.updateDate = Date()
+            MemoDataDao.setTextByLines(memo: memoData, text: self.memoTextView.text)
             MemoDataDao.update(model: memoData)
         } else {
             MemoDataDao.add(memoText: self.memoTextView.text)
