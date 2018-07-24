@@ -47,8 +47,8 @@ final class MemoDataDao {
             newObject.memoId = newId
         }
         newObject.updateDate = Date()
-        newObject.memoText = memoText
-       
+         // 1行目のみタイトルとして保存
+        setTextByLines(memo: newObject, text: memoText)
         MemoDataDao.memoDataDaoDelegate?.result(type: .add, error: daoHelper.add(d: newObject))
     }
     
@@ -67,5 +67,16 @@ final class MemoDataDao {
     // 全削除
     static func deleteAll() {
         MemoDataDao.memoDataDaoDelegate?.result(type: .deleteAll, error: daoHelper.deleteAll())
+    }
+    
+    /// Memoモデルのtitleとcontentに文字列を分割してセットする（title = １行目, content = ２行目以降）
+    ///
+    /// - Parameters:
+    ///   - memo: 値をセットするMemoオブジェクト
+    ///   - text: セットする文字列
+    static func setTextByLines(memo: Memo, text: String) {
+        let lines = text.divideFirstLines()
+        memo.title = lines[0]
+        memo.content = lines.count >= 2 ? lines[1] : "" // 2行目以降が存在しない場合は空文字挿入
     }
 }

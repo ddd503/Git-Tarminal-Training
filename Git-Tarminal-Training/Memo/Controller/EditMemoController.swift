@@ -24,7 +24,8 @@ class EditMemoController: UIViewController {
     private func setup() {
         // 編集の場合は、編集元のテキストを入れる
         if let memoData = self.memoData {
-            self.memoTextView.text = memoData.memoText
+            self.memoTextView.text = memoData.content == "" ?
+                memoData.title : memoData.title + "\n" + memoData.content
         }
         self.setupBarButton()
         self.memoTextView.becomeFirstResponder()
@@ -39,11 +40,9 @@ class EditMemoController: UIViewController {
     // MARK: - Action
     @objc func saveMemo(sender: UIBarButtonItem) {
         if self.isEditingMemo {
-            guard let memoData = self.memoData else {
-                return
-            }
-            memoData.memoText = self.memoTextView.text
+            guard let memoData = self.memoData else { return }
             memoData.updateDate = Date()
+            MemoDataDao.setTextByLines(memo: memoData, text: self.memoTextView.text)
             MemoDataDao.update(model: memoData)
         } else {
             MemoDataDao.add(memoText: self.memoTextView.text)
