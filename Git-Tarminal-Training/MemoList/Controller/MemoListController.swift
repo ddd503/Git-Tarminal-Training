@@ -56,6 +56,7 @@ class MemoListController: UIViewController {
         dataSource.delegate = self
         navigationItem.rightBarButtonItem = editButtonItem
         self.updateMemoCount()
+        self.updateTableViewSeparator(isEmpty: self.dataSource.memoList.isEmpty)
     }
     
     private func transitionMemoDetail(memoData: Memo?) {
@@ -107,6 +108,7 @@ class MemoListController: UIViewController {
                 self.dataSource.memoList.remove(at: 0)
                 self.memoList.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
             }
+            self.memoList.reloadData() // 編集で単数削除選択時に全削除すると固まる問題への対応
         }
         // 件数表示を更新
         self.updateMemoCount()
@@ -133,6 +135,16 @@ extension MemoListController: UITableViewDelegate {
         transitionMemoDetail(memoData: self.dataSource.memoList[indexPath.row])
     }
     
+    // スワイプでの編集モード開始時
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        self.addMemoButton.isEnabled = false
+    }
+    
+    // スワイプでの編集モード終了時
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        self.addMemoButton.isEnabled = true
+    }
+    
 }
 
 extension MemoListController: MemoListDataSourceDelegate {
@@ -142,6 +154,10 @@ extension MemoListController: MemoListDataSourceDelegate {
         MemoDataDao.delete(model: self.dataSource.memoList[index])
         self.dataSource.memoList.remove(at: index)
         self.memoList.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+    }
+    
+    func updateTableViewSeparator(isEmpty: Bool) {
+        self.memoList.separatorStyle = isEmpty ? .singleLine : .none
     }
     
 }
