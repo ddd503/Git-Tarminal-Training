@@ -10,11 +10,22 @@ import UIKit
 
 protocol MemoListDataSourceDelegate {
     func delete(index: Int)
+    func updateTableViewSeparator(isEmpty: Bool)
 }
 
 final class MemoListDataSource: NSObject {
-    var memoList: [Memo] = []
+    var memoList: [Memo] = [] {
+        didSet {
+            if self.delegate != nil, self.isHiddenTableViewSeparator != self.memoList.isEmpty {
+                // memoListが0件になる or 0件から増える時にupdateをかける
+                self.delegate?.updateTableViewSeparator(isEmpty: self.memoList.isEmpty)
+                self.isHiddenTableViewSeparator = self.memoList.isEmpty
+            }
+        }
+    }
     var delegate: MemoListDataSourceDelegate?
+    // tableViewのSeparatorを更新する必要があるかどうか
+    var isHiddenTableViewSeparator = true
 }
 
 extension MemoListDataSource: UITableViewDataSource {
