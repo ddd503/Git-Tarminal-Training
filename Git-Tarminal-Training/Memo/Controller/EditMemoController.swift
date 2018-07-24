@@ -27,13 +27,29 @@ class EditMemoController: UIViewController {
             self.memoTextView.text = memoData.memoText
         }
         self.setupBarButton()
+        self.memoTextView.delegate = self
         self.memoTextView.becomeFirstResponder()
         MemoDataDao.memoDataDaoDelegate = self
     }
     
     private func setupBarButton() {
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(EditMemoController.saveMemo(sender:)))
+        rightBarButton.isEnabled = false
         self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    private func isEnabledDoneButton(text: String) -> Bool {
+        // 空文字チェック
+        guard text.count > 0 else {
+            return false
+        }
+        
+        // 変更前の文字列とのかぶりチェック
+        if isEditingMemo {
+            return text != self.memoData?.memoText
+        }
+        
+        return true
     }
     
     // MARK: - Action
@@ -67,6 +83,15 @@ extension EditMemoController: MemoDataDaoDelegate {
         memoListController.databaseError = error
         
         self.navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+extension EditMemoController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        // テキストの入力状況によって完了ボタンの活性を管理
+        self.navigationItem.rightBarButtonItem?.isEnabled = self.isEnabledDoneButton(text: textView.text)
     }
     
 }
