@@ -33,7 +33,7 @@ class MemoListController: UIViewController {
         if let databaseActionType = self.databaseActionType {
             // エラーチェック
             if let databaseError = self.databaseError {
-                self.failureDatabaseAction(type: databaseActionType, error: databaseError)
+                self.failureDatabaseAction(databaseActionType: databaseActionType, error: databaseError)
                 return
             }
             // 成功
@@ -122,7 +122,24 @@ class MemoListController: UIViewController {
         self.updateMemoCount()
     }
     
-    private func failureDatabaseAction(type: ActionType, error: Error) {}
+    private func failureDatabaseAction(databaseActionType: ActionType, error: Error) {
+        // 現状error自体をハンドリングしていない
+        var errorMessage = ""
+        switch databaseActionType {
+        case .add:
+            errorMessage = "メモの作成に失敗しました。"
+        case .update:
+            errorMessage = "メモの編集に失敗しました。"
+        case .delete:
+            errorMessage = "メモの削除に失敗しました。"
+        case .deleteAll:
+           errorMessage = "メモの全削除に失敗しました。"
+        }
+        let errorAlert = UIAlertController(title: "エラー", message: errorMessage, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        errorAlert.addAction(alertAction)
+        self.present(errorAlert, animated: true, completion: nil)
+    }
     
     // MARK: - Action
     @IBAction func addMemo(_ sender: UIBarButtonItem) {
