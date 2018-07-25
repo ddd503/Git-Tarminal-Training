@@ -47,6 +47,12 @@ class MemoListController: UIViewController {
         super.setEditing(editing, animated: animated)
         self.memoList.isEditing = editing
         self.addMemoButton.title = editing ? "すべて削除" : "メモ追加"
+        // 編集中かつデータが0件の場合にすべて削除を押せないようにする
+        if editing {
+            self.addMemoButton.isEnabled = !self.dataSource.memoList.isEmpty
+        } else {
+            self.addMemoButton.isEnabled = true
+        }
     }
     
     // MARK: - Private
@@ -97,11 +103,11 @@ class MemoListController: UIViewController {
     private func successDatabaseAction(databaseActionType: ActionType) {
         switch databaseActionType {
         case .add:
-            print("追加成功")
+            ResultView.show(topView: self.view, resultMessage: "メモを作成しました。")
         case .update:
-            print("更新成功")
+            ResultView.show(topView: self.view, resultMessage: "メモを編集しました。")
         case .delete:
-            print("削除成功")
+            ResultView.show(topView: self.view, resultMessage: "メモを削除しました。")
         case .deleteAll:
             // アニメーション付きで削除
             for _ in self.dataSource.memoList {
@@ -109,6 +115,8 @@ class MemoListController: UIViewController {
                 self.memoList.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
             }
             self.memoList.reloadData() // 編集で単数削除選択時に全削除すると固まる問題への対応
+            self.addMemoButton.isEnabled = false // すべて削除成功時は続けて押せないようにする
+            ResultView.show(topView: self.view, resultMessage: "メモをすべて削除しました。")
         }
         // 件数表示を更新
         self.updateMemoCount()
