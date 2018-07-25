@@ -189,25 +189,9 @@
 		4564DAA520FBB49A003BE4D5 /* Memo */ = {
 			isa = PBXGroup;
 			children = (
-				4564DAA720FBB4BB003BE4D5 /* Model */,
-				4564DAA620FBB4B8003BE4D5 /* View */,
 				4564DAA020FBB395003BE4D5 /* Controller */,
 			);
 			path = Memo;
-			sourceTree = "<group>";
-		};
-		4564DAA620FBB4B8003BE4D5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4564DAA720FBB4BB003BE4D5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4564DAA820FBB4EB003BE4D5 /* Other */ = {
