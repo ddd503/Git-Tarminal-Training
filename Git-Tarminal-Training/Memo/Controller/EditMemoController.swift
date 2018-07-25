@@ -6,17 +6,22 @@
 //  Copyright © 2018年 kawaharadai. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class EditMemoController: UIViewController {
 
     @IBOutlet weak var memoTextView: UITextView!
     
+    // テキストビューの行間
+    private let lineSpacing: CGFloat = 15
+    private let fontSize: CGFloat = 16
     var memoData: Memo?
     var isEditingMemo = false
     // 編集時に変更の有無をチェックする用
     var beforeText = ""
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
@@ -31,8 +36,7 @@ class EditMemoController: UIViewController {
             self.memoTextView.text = self.beforeText
         }
         self.setupBarButton()
-        self.memoTextView.delegate = self
-        self.memoTextView.becomeFirstResponder()
+        self.setupTextView()
         MemoDataDao.memoDataDaoDelegate = self
     }
     
@@ -40,6 +44,19 @@ class EditMemoController: UIViewController {
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(EditMemoController.saveMemo(sender:)))
         rightBarButton.isEnabled = false
         self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    private func setupTextView() {
+        self.memoTextView.delegate = self
+        self.memoTextView.becomeFirstResponder()
+        // 行間を設定
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = lineSpacing
+        let attributes = [kCTParagraphStyleAttributeName : style]
+        self.memoTextView.attributedText = NSAttributedString(string: self.memoTextView.text,
+                                                              attributes: attributes as [NSAttributedStringKey : Any])
+        // フォントはattributedTextをいじった後に変更しないとリセットされてしまう
+        self.memoTextView.font = UIFont.systemFont(ofSize: fontSize)
     }
     
     private func isEnabledDoneButton(text: String) -> Bool {
