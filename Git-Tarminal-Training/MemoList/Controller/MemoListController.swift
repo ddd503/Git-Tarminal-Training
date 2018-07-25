@@ -18,6 +18,7 @@ class MemoListController: UIViewController {
     var databaseActionType: ActionType?
     var databaseError: Error?
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
