@@ -61,16 +61,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="x9d-xP-VzX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="111.5"/>
+                                                    <rect key="frame" x="10" y="10" width="365" height="92"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本文1行目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-Jn-gNc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="365" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cKP-QI-dcc">
-                                                            <rect key="frame" x="0.0" y="91" width="201" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="71.5" width="201" height="20.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新日時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcD-9c-fzn">
                                                                     <rect key="frame" x="0.0" y="0.0" width="69.5" height="20.5"/>
@@ -93,10 +93,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="x9d-xP-VzX" secondAttribute="bottom" id="29P-gg-tBr"/>
-                                                <constraint firstItem="x9d-xP-VzX" firstAttribute="leading" secondItem="F7R-SH-ge6" secondAttribute="leading" id="aCg-yU-KRs"/>
+                                                <constraint firstAttribute="bottom" secondItem="x9d-xP-VzX" secondAttribute="bottom" constant="10" id="29P-gg-tBr"/>
+                                                <constraint firstItem="x9d-xP-VzX" firstAttribute="leading" secondItem="F7R-SH-ge6" secondAttribute="leading" constant="10" id="aCg-yU-KRs"/>
                                                 <constraint firstAttribute="trailing" secondItem="x9d-xP-VzX" secondAttribute="trailing" id="sMk-w7-l6T"/>
-                                                <constraint firstItem="x9d-xP-VzX" firstAttribute="top" secondItem="F7R-SH-ge6" secondAttribute="top" id="xp6-tz-V4O"/>
+                                                <constraint firstItem="x9d-xP-VzX" firstAttribute="top" secondItem="F7R-SH-ge6" secondAttribute="top" constant="10" id="xp6-tz-V4O"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -122,6 +122,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="メモ" id="Wmq-AW-hYu"/>
                     <connections>
+                        <outlet property="addMemoButton" destination="gLe-NO-D8N" id="o6B-20-yAY"/>
+                        <outlet property="memoCountLabel" destination="lSa-eN-YjT" id="nGh-kA-xva"/>
                         <outlet property="memoList" destination="jzV-Db-q49" id="G0X-tB-tic"/>
                     </connections>
                 </viewController>

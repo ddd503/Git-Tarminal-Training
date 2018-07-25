@@ -12,15 +12,10 @@ import RealmSwift
 final class Memo: Object {
     @objc dynamic var memoId = 0
     @objc dynamic var updateDate = Date()
-    @objc dynamic var memoText = ""
+    @objc dynamic var title = ""
+    @objc dynamic var content = ""
 
     override static func primaryKey() -> String? {
         return "memoId"
     }
-    
-    
-//    // フォルダIDによってソートする
-//    func checkTaskCount() -> String {
-//        return TaskListDao.selectObjectsSortedDateWithFolderId(folderId: folderId).count.description
-//    }
 }

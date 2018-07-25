@@ -19,18 +19,10 @@ class MemoCell: UITableViewCell {
     }
     
     func setMemoData(memo: Memo) {
-        // TODO: １行目を取り出してタイトルに
-        // TODO: 日付データをStringに変換して日付ラベルに
-        // TODO: 2行目以降を本文ラベルに
-        
-        let linesArray = memo.memoText.components(separatedBy: "\n")
-        if linesArray.count >= 2 {
-            self.titleLabel.text = linesArray[0] == "" ? "タイトルなし" : linesArray[0]
-            self.contentLabel.text = linesArray[1]
-        } else if linesArray.count >= 1 {
-            self.titleLabel.text = linesArray[0] == "" ? "タイトルなし" : linesArray[0]
-            self.contentLabel.text = ""
-        }
-        
+        // titleとcontentに値をセット
+        self.titleLabel.text = memo.title == "" ? "タイトルなし" : memo.title
+        self.contentLabel.text = memo.content
+        // 更新日付をセット
+        self.dateLabel.text = memo.updateDate.dateStyle()
     }
 }

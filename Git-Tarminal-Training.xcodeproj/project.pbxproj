@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4505C73A2104D37300B08542 /* Date+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505C7392104D37300B08542 /* Date+Style.swift */; };
+		4505C73C21076C7500B08542 /* String+Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505C73B21076C7500B08542 /* String+Lines.swift */; };
+		4505C73E2108C37700B08542 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505C73D2108C37700B08542 /* ResultView.swift */; };
 		452D13FC20FCD53400B5A884 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4564DAB220FCBED5003BE4D5 /* Realm.framework */; };
 		452D13FD20FCD53400B5A884 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4564DAB220FCBED5003BE4D5 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		452D140320FCD6B200B5A884 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 452D140220FCD6B200B5A884 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -52,6 +55,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4505C7392104D37300B08542 /* Date+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Style.swift"; sourceTree = "<group>"; };
+		4505C73B21076C7500B08542 /* String+Lines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Lines.swift"; sourceTree = "<group>"; };
+		4505C73D2108C37700B08542 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		452D140020FCD66A00B5A884 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		452D140220FCD6B200B5A884 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		452D140520FCE29100B5A884 /* MemoListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListDataSource.swift; sourceTree = "<group>"; };
@@ -185,25 +191,9 @@
 		4564DAA520FBB49A003BE4D5 /* Memo */ = {
 			isa = PBXGroup;
 			children = (
-				4564DAA720FBB4BB003BE4D5 /* Model */,
-				4564DAA620FBB4B8003BE4D5 /* View */,
 				4564DAA020FBB395003BE4D5 /* Controller */,
 			);
 			path = Memo;
-			sourceTree = "<group>";
-		};
-		4564DAA620FBB4B8003BE4D5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4564DAA720FBB4BB003BE4D5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4564DAA820FBB4EB003BE4D5 /* Other */ = {
@@ -221,6 +211,9 @@
 			isa = PBXGroup;
 			children = (
 				4564DAB820FCC346003BE4D5 /* RealmDaoHelper.swift */,
+				4505C7392104D37300B08542 /* Date+Style.swift */,
+				4505C73B21076C7500B08542 /* String+Lines.swift */,
+				4505C73D2108C37700B08542 /* ResultView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -356,8 +349,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				452D140820FCE2DD00B5A884 /* MemoCell.swift in Sources */,
+				4505C73A2104D37300B08542 /* Date+Style.swift in Sources */,
+				4505C73E2108C37700B08542 /* ResultView.swift in Sources */,
 				4564DAB720FCC116003BE4D5 /* MemoDataDao.swift in Sources */,
 				4564DAB520FCC002003BE4D5 /* Memo.swift in Sources */,
+				4505C73C21076C7500B08542 /* String+Lines.swift in Sources */,
 				452D140C21022B9800B5A884 /* EditMemoController.swift in Sources */,
 				452D140620FCE29100B5A884 /* MemoListDataSource.swift in Sources */,
 				4564DAAD20FBB5CB003BE4D5 /* MemoListController.swift in Sources */,
