@@ -59,7 +59,7 @@ final class MemoDataDao {
     
     // 削除
     static func delete(model: Memo) {
-        // これいる？？
+        // 一度フェッチした上でデリートを行わないとクラッシュする（reason: 'Can only delete an object from the Realm it belongs to.'）
         guard let deleteObject = daoHelper.findFirst(key: model.memoId as AnyObject) else { return }
         MemoDataDao.memoDataDaoDelegate?.result(type: .delete, error: daoHelper.delete(d: deleteObject))
     }
