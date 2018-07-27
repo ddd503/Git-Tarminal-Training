@@ -66,6 +66,9 @@ class MemoListController: UIViewController {
         self.updateTableViewSeparator(isEmpty: self.dataSource.memoList.isEmpty)
     }
     
+    /// メモ編集画面Memo型変数を渡した上で遷移する
+    ///
+    /// - Parameter memoData: 編集するMemoクラスのデータ
     private func transitionMemoDetail(memoData: Memo?) {
         guard let editMemoController = UIStoryboard(name: "EditMemoController", bundle: nil)
             .instantiateInitialViewController() as? EditMemoController else {
@@ -76,11 +79,13 @@ class MemoListController: UIViewController {
         self.navigationController?.pushViewController(editMemoController, animated: true)
     }
     
+    /// メモ一覧画面のメモ件数を更新する
     private func updateMemoCount() {
         let memoCount = MemoDataDao.selectObjects().count
         self.memoCountLabel.text = memoCount > 0 ? "\(memoCount)件のメモ" : "メモなし"
     }
     
+    /// アプリ側のデータソースを更新する
     private func reloadMemoList() {
         self.dataSource.memoList = MemoDataDao.selectObjects()
         DispatchQueue.main.async {
@@ -88,6 +93,7 @@ class MemoListController: UIViewController {
         }
     }
     
+    /// すべて削除するかのアクションシートを表示する
     private func deleteAllAlert() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAllAction = UIAlertAction(title: "すべて削除", style: .destructive) { _ in
@@ -101,6 +107,9 @@ class MemoListController: UIViewController {
         self.present(actionSheet, animated: true)
     }
     
+    /// DB操作に成功した場合に各操作アクションに応じた成功後処理を行う
+    ///
+    /// - Parameter databaseActionType: 成功したDB操作
     private func successDatabaseAction(databaseActionType: ActionType) {
         switch databaseActionType {
         case .add:
@@ -123,6 +132,11 @@ class MemoListController: UIViewController {
         self.updateMemoCount()
     }
     
+    /// DB操作に失敗した場合に、各アクションに応じたアラートを出す
+    ///
+    /// - Parameters:
+    ///   - databaseActionType: DB操作種別
+    ///   - error: 発生したエラー
     private func failureDatabaseAction(databaseActionType: ActionType, error: Error) {
         // 現状error自体をハンドリングしていない
         var errorMessage = ""
@@ -175,6 +189,9 @@ extension MemoListController: UITableViewDelegate {
 
 extension MemoListController: MemoListDataSourceDelegate {
     
+    /// 削除操作のリクエスト
+    ///
+    /// - Parameter index: 削除する要素のindex
     func delete(index: Int) {
         MemoDataDao.memoDataDaoDelegate = self
         MemoDataDao.delete(model: self.dataSource.memoList[index])
@@ -182,6 +199,9 @@ extension MemoListController: MemoListDataSourceDelegate {
         self.memoList.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
     }
     
+    /// テーブルビューのSeparatorの表示非表示を管理（セルが0件の時：表示、セルが1件以上の時：非表示）
+    ///
+    /// - Parameter isEmpty: データソース(セル)が0件かどうか
     func updateTableViewSeparator(isEmpty: Bool) {
         self.memoList.separatorStyle = isEmpty ? .singleLine : .none
     }
@@ -190,10 +210,15 @@ extension MemoListController: MemoListDataSourceDelegate {
 
 extension MemoListController: MemoDataDaoDelegate {
     
+    /// DB操作の完了通知
+    ///
+    /// - Parameters:
+    ///   - type: DB操作種別
+    ///   - error: 操作失敗時はErrorを取得しています
     func result(type: ActionType, error: Error?) {
         // DB操作がエラーした場合
         if let databaseError = error {
-            print(databaseError)
+            self.failureDatabaseAction(databaseActionType: type, error: databaseError)
             return
         }
         

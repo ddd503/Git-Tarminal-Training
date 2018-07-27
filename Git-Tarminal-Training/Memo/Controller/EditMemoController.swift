@@ -59,6 +59,10 @@ class EditMemoController: UIViewController {
         self.memoTextView.font = UIFont.systemFont(ofSize: fontSize)
     }
     
+    /// 完了ボタンを押せるかどうかを判定する
+    ///
+    /// - Parameter text: Memoが持っているテキスト情報
+    /// - Returns: 完了ボタンを押せるかどうか
     private func isEnabledDoneButton(text: String) -> Bool {
         // 空文字チェック
         guard text.count > 0 else {
@@ -74,6 +78,9 @@ class EditMemoController: UIViewController {
     }
     
     // MARK: - Action
+    /// メモ編集画面の右上の完了を押した場合に走る処理（作成処理or編集処理）
+    ///
+    /// - Parameter sender:
     @objc func saveMemo(sender: UIBarButtonItem) {
         if self.isEditingMemo {
             guard let memoData = self.memoData else { return }
