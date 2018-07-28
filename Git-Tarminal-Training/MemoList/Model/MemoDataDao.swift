@@ -18,6 +18,7 @@ enum ActionType {
     case update
     case delete
     case deleteAll
+    case none
 }
 
 final class MemoDataDao {

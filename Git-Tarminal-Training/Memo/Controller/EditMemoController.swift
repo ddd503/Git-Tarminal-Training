@@ -13,11 +13,13 @@ class EditMemoController: UIViewController {
 
     @IBOutlet weak var memoTextView: UITextView!
     
-    // テキストビューの行間
+    // テキストビューの行間と文字サイズ
     private let lineSpacing: CGFloat = 15
     private let fontSize: CGFloat = 16
+    
     var memoData: Memo?
     var isEditingMemo = false
+    
     // 編集時に変更の有無をチェックする用
     var beforeText = ""
     
@@ -30,7 +32,8 @@ class EditMemoController: UIViewController {
     // MARK: - Private
     private func setup() {
         // 編集の場合は、編集元のテキストを入れる
-        if let memoData = self.memoData {
+        if isEditingMemo {
+            guard let memoData = self.memoData else { return }
             self.beforeText = memoData.content == "" ?
                 memoData.title : memoData.title + "\n" + memoData.content
             self.memoTextView.text = self.beforeText
@@ -40,6 +43,7 @@ class EditMemoController: UIViewController {
         MemoDataDao.memoDataDaoDelegate = self
     }
     
+    /// 完了ボタンを作る
     private func setupBarButton() {
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(EditMemoController.saveMemo(sender:)))
         rightBarButton.isEnabled = false
@@ -48,6 +52,7 @@ class EditMemoController: UIViewController {
     
     private func setupTextView() {
         self.memoTextView.delegate = self
+         // 選択状態にする（キーボードが出る）
         self.memoTextView.becomeFirstResponder()
         // 行間を設定
         let style = NSMutableParagraphStyle()
@@ -82,7 +87,7 @@ class EditMemoController: UIViewController {
     ///
     /// - Parameter sender:
     @objc func saveMemo(sender: UIBarButtonItem) {
-        if self.isEditingMemo {
+        if isEditingMemo {
             guard let memoData = self.memoData else { return }
             memoData.updateDate = Date()
             MemoDataDao.setTextByLines(memo: memoData, text: self.memoTextView.text)

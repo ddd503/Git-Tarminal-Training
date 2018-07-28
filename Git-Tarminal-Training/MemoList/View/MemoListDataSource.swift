@@ -16,15 +16,15 @@ protocol MemoListDataSourceDelegate {
 final class MemoListDataSource: NSObject {
     var memoList: [Memo] = [] {
         didSet {
+            // memoListが0件になる or 0件から増える時にupdateをかける
             if self.delegate != nil, self.isHiddenTableViewSeparator != self.memoList.isEmpty {
-                // memoListが0件になる or 0件から増える時にupdateをかける
                 self.delegate?.updateTableViewSeparator(isEmpty: self.memoList.isEmpty)
                 self.isHiddenTableViewSeparator = self.memoList.isEmpty
             }
         }
     }
     var delegate: MemoListDataSourceDelegate?
-    // tableViewのSeparatorを更新する必要があるかどうか
+    // tableViewのSeparatorの表示状態を管理
     var isHiddenTableViewSeparator = true
 }
 

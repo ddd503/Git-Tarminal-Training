@@ -13,7 +13,7 @@ public extension String {
     ///
     /// - 2行以上の文章　= [１行目, それ以降の文章]
     /// - 1行の文章　= [１行目]
-    /// - nil(ありえない)　= []
+    /// - nil(ありえないけど)　= []
     func divideFirstLines() -> [String] {
         var lines: [String] = self.components(separatedBy: .newlines)
         guard lines.count >= 1 else { return [] }

@@ -15,7 +15,7 @@ class MemoListController: UIViewController {
     @IBOutlet weak var memoCountLabel: UILabel!
     
     private let dataSource = MemoListDataSource()
-    var databaseActionType: ActionType?
+    var databaseActionType: ActionType = .none
     var databaseError: Error?
     
     // MARK: - Lifecycle
@@ -26,22 +26,13 @@ class MemoListController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         // データソース取得
         self.reloadMemoList()
-        
-        // DB操作後の処理
-        if let databaseActionType = self.databaseActionType {
-            // エラーチェック
-            if let databaseError = self.databaseError {
-                self.failureDatabaseAction(databaseActionType: databaseActionType, error: databaseError)
-                return
-            }
-            // 成功
-            self.successDatabaseAction(databaseActionType: databaseActionType)
-            self.databaseActionType = nil
+        // DB操作を行っていた場合は完了後の処理を行う
+        if self.databaseActionType != .none {
+            self.result(type: self.databaseActionType, error: self.databaseError)
+            self.databaseActionType = .none
         }
-        
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -72,6 +63,7 @@ class MemoListController: UIViewController {
     private func transitionMemoDetail(memoData: Memo?) {
         guard let editMemoController = UIStoryboard(name: "EditMemoController", bundle: nil)
             .instantiateInitialViewController() as? EditMemoController else {
+                print("EditMemoController is nil")
                 return
         }
         editMemoController.memoData = memoData
@@ -93,7 +85,7 @@ class MemoListController: UIViewController {
         }
     }
     
-    /// すべて削除するかのアクションシートを表示する
+    /// 『すべて削除』を行うためのアクションシートを表示する
     private func deleteAllAlert() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAllAction = UIAlertAction(title: "すべて削除", style: .destructive) { _ in
@@ -127,6 +119,8 @@ class MemoListController: UIViewController {
             self.memoList.reloadData() // 編集で単数削除選択時に全削除すると固まる問題への対応
             self.addMemoButton.isEnabled = false // すべて削除成功時は続けて押せないようにする
             ResultView.show(topView: self.view, resultMessage: "メモをすべて削除しました。")
+        case .none:
+            break
         }
         // 件数表示を更新
         self.updateMemoCount()
@@ -149,6 +143,8 @@ class MemoListController: UIViewController {
             errorMessage = "メモの削除に失敗しました。"
         case .deleteAll:
            errorMessage = "メモの全削除に失敗しました。"
+        case .none:
+            break
         }
         let errorAlert = UIAlertController(title: "エラー", message: errorMessage, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
