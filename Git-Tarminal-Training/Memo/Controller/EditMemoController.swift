@@ -23,6 +23,10 @@ class EditMemoController: UIViewController {
     // 編集時に変更の有無をチェックする用
     var beforeText = ""
     
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

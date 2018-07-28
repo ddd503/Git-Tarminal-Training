@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VIn-Gb-cf3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Memo Controller-->
+        <scene sceneID="xDG-6V-S7o">
+            <objects>
+                <viewController id="VIn-Gb-cf3" customClass="EditMemoController" customModule="Git_Tarminal_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JBG-Qg-0ws">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="59r-T1-kmb">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5K3-gE-eZh" firstAttribute="trailing" secondItem="59r-T1-kmb" secondAttribute="trailing" id="94Y-J3-aRS"/>
+                            <constraint firstItem="59r-T1-kmb" firstAttribute="leading" secondItem="5K3-gE-eZh" secondAttribute="leading" id="S5R-ju-gku"/>
+                            <constraint firstItem="59r-T1-kmb" firstAttribute="top" secondItem="5K3-gE-eZh" secondAttribute="top" id="fY0-pp-nda"/>
+                            <constraint firstItem="5K3-gE-eZh" firstAttribute="bottom" secondItem="59r-T1-kmb" secondAttribute="bottom" id="q7x-lK-70f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5K3-gE-eZh"/>
+                    </view>
+                    <connections>
+                        <outlet property="memoTextView" destination="59r-T1-kmb" id="RkM-e0-Qfg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e1A-lk-esB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136" y="162"/>
+        </scene>
+    </scenes>
+</document>

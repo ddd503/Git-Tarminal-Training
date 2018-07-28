@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "更新日時"; ObjectID = "PcD-9c-fzn"; */
+"PcD-9c-fzn.text" = "更新日時";
+
+/* Class = "UINavigationItem"; title = "メモ"; ObjectID = "Wmq-AW-hYu"; */
+"Wmq-AW-hYu.title" = "メモ";
+
+/* Class = "UIBarButtonItem"; title = "メモ追加"; ObjectID = "gLe-NO-D8N"; */
+"gLe-NO-D8N.title" = "メモ追加";
+
+/* Class = "UILabel"; text = "メモなし"; ObjectID = "lSa-eN-YjT"; */
+"lSa-eN-YjT.text" = "メモなし";
+
+/* Class = "UILabel"; text = "本文２行目以降"; ObjectID = "nuR-Rs-R6K"; */
+"nuR-Rs-R6K.text" = "本文２行目以降";
+
+/* Class = "UILabel"; text = "本文1行目"; ObjectID = "tu9-Jn-gNc"; */
+"tu9-Jn-gNc.text" = "本文1行目";

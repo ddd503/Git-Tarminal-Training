@@ -38,7 +38,7 @@ class MemoListController: UIViewController {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         self.memoList.isEditing = editing
-        self.addMemoButton.title = editing ? "すべて削除" : "メモ追加"
+        self.addMemoButton.title = editing ? "delete all".localized() : "add memo".localized()
         // 編集中かつデータが0件の場合にすべて削除を押せないようにする
         if editing {
             self.addMemoButton.isEnabled = !self.dataSource.memoList.isEmpty
@@ -61,7 +61,7 @@ class MemoListController: UIViewController {
     ///
     /// - Parameter memoData: 編集するMemoクラスのデータ
     private func transitionMemoDetail(memoData: Memo?) {
-        guard let editMemoController = UIStoryboard(name: "EditMemoController", bundle: nil)
+        guard let editMemoController = UIStoryboard(name: EditMemoController.identifier, bundle: nil)
             .instantiateInitialViewController() as? EditMemoController else {
                 print("EditMemoController is nil")
                 return
@@ -74,7 +74,7 @@ class MemoListController: UIViewController {
     /// メモ一覧画面のメモ件数を更新する
     private func updateMemoCount() {
         let memoCount = MemoDataDao.selectObjects().count
-        self.memoCountLabel.text = memoCount > 0 ? "\(memoCount)件のメモ" : "メモなし"
+        self.memoCountLabel.text = memoCount > 0 ? "\(memoCount)件のメモ" : "nothing memo".localized()
     }
     
     /// アプリ側のデータソースを更新する
@@ -88,11 +88,11 @@ class MemoListController: UIViewController {
     /// 『すべて削除』を行うためのアクションシートを表示する
     private func deleteAllAlert() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let deleteAllAction = UIAlertAction(title: "すべて削除", style: .destructive) { _ in
+        let deleteAllAction = UIAlertAction(title: "delete all".localized(), style: .destructive) { _ in
             MemoDataDao.memoDataDaoDelegate = self
             MemoDataDao.deleteAll()
         }
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil)
         
         actionSheet.addAction(deleteAllAction)
         actionSheet.addAction(cancelAction)
@@ -105,11 +105,11 @@ class MemoListController: UIViewController {
     private func successDatabaseAction(databaseActionType: ActionType) {
         switch databaseActionType {
         case .add:
-            ResultView.show(topView: self.view, resultMessage: "メモを作成しました。")
+            ResultView.show(topView: self.view, resultMessage: "did add memo".localized())
         case .update:
-            ResultView.show(topView: self.view, resultMessage: "メモを編集しました。")
+            ResultView.show(topView: self.view, resultMessage: "did edit memo".localized())
         case .delete:
-            ResultView.show(topView: self.view, resultMessage: "メモを削除しました。")
+            ResultView.show(topView: self.view, resultMessage: "did delete memo".localized())
         case .deleteAll:
             // アニメーション付きで削除
             for _ in self.dataSource.memoList {
@@ -118,7 +118,7 @@ class MemoListController: UIViewController {
             }
             self.memoList.reloadData() // 編集で単数削除選択時に全削除すると固まる問題への対応
             self.addMemoButton.isEnabled = false // すべて削除成功時は続けて押せないようにする
-            ResultView.show(topView: self.view, resultMessage: "メモをすべて削除しました。")
+            ResultView.show(topView: self.view, resultMessage: "did delete all memo".localized())
         case .none:
             break
         }
@@ -136,18 +136,18 @@ class MemoListController: UIViewController {
         var errorMessage = ""
         switch databaseActionType {
         case .add:
-            errorMessage = "メモの作成に失敗しました。"
+            errorMessage = "failed add memo".localized()
         case .update:
-            errorMessage = "メモの編集に失敗しました。"
+            errorMessage = "failed edit memo".localized()
         case .delete:
-            errorMessage = "メモの削除に失敗しました。"
+            errorMessage = "failed delete memo".localized()
         case .deleteAll:
-           errorMessage = "メモの全削除に失敗しました。"
+           errorMessage = "failed delete all memo".localized()
         case .none:
             break
         }
-        let errorAlert = UIAlertController(title: "エラー", message: errorMessage, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let errorAlert = UIAlertController(title: "error".localized(), message: errorMessage, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "ok".localized(), style: .default, handler: nil)
         errorAlert.addAction(alertAction)
         self.present(errorAlert, animated: true, completion: nil)
     }

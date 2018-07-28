@@ -22,7 +22,7 @@ class MemoCell: UITableViewCell {
     ///
     /// - Parameter memo: 表示するメモ情報
     func setMemoData(memo: Memo) {
-        self.titleLabel.text = hasText(title: memo.title) ? "タイトルなし" : memo.title
+        self.titleLabel.text = hasText(title: memo.title) ? "no title".localized() : memo.title
         self.contentLabel.text = memo.content
         self.dateLabel.text = memo.updateDate.dateStyle()
     }

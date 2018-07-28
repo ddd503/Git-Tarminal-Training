@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  Git-Tarminal-Training
+
+  Created by kawaharadai on 2018/07/28.
+  Copyright © 2018年 kawaharadai. All rights reserved.
+*/
+"no title" = "タイトルなし";
+"cancel" = "キャンセル";
+"error" = "エラー";
+"ok" = "OK";
+"delete all" = "すべて削除";
+"add memo" = "メモ追加";
+"nothing memo" = "メモなし";
+"did add memo" = "メモを作成しました。";
+"did edit memo" = "メモを編集しました。";
+"did delete memo" = "メモを削除しました。";
+"did delete all memo" = "メモをすべて削除しました。";
+"failed add memo" = "メモの作成に失敗しました。";
+"failed edit memo" = "メモの編集に失敗しました。";
+"failed delete memo" = "メモの削除に失敗しました。";
+"failed delete all memo" = "メモの全削除に失敗しました。";
