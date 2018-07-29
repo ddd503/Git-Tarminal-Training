@@ -42,19 +42,17 @@ final class MemoDataDao {
     }
     
     // 新規作成
-    static func add(memoText: String) {
-        let newObject = Memo()
+    static func add(newObject: Memo) {
         if let newId = daoHelper.newId() {
             newObject.memoId = newId
         }
         newObject.updateDate = Date()
-         // 1行目のみタイトルとして保存
-        setTextByLines(memo: newObject, text: memoText)
         MemoDataDao.memoDataDaoDelegate?.result(type: .add, error: daoHelper.add(d: newObject))
     }
     
     // 更新
     static func update(model: Memo) {
+        model.updateDate = Date()
         MemoDataDao.memoDataDaoDelegate?.result(type: .update, error: daoHelper.update(d: model, block: nil))
     }
     

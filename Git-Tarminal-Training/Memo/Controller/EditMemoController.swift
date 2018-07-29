@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 
 class EditMemoController: UIViewController {
-
+    
     @IBOutlet weak var memoTextView: UITextView!
     
     // テキストビューの行間と文字サイズ
     private let lineSpacing: CGFloat = 15
     private let fontSize: CGFloat = 16
     
-    var memoData: Memo?
+    var memoData: Memo? = nil
     var isEditingMemo = false
     
     // 編集時に変更の有無をチェックする用
@@ -56,7 +56,7 @@ class EditMemoController: UIViewController {
     
     private func setupTextView() {
         self.memoTextView.delegate = self
-         // 選択状態にする（キーボードが出る）
+        // 選択状態にする（キーボードが出る）
         self.memoTextView.becomeFirstResponder()
         // 行間を設定
         let style = NSMutableParagraphStyle()
@@ -77,12 +77,10 @@ class EditMemoController: UIViewController {
         guard text.count > 0 else {
             return false
         }
-        
         // 変更前の文字列とのかぶりチェック
         if isEditingMemo {
             return text != self.beforeText
         }
-        
         return true
     }
     
@@ -91,27 +89,31 @@ class EditMemoController: UIViewController {
     ///
     /// - Parameter sender:
     @objc func saveMemo(sender: UIBarButtonItem) {
+        guard let memoData = isEditingMemo ? self.memoData : Memo() else {
+            self.result(type: isEditingMemo ? .update : .add, error: AppError.notFoundMemo)
+            return
+        }
+        // 1行目のみタイトルとして保存
+        MemoDataDao.setTextByLines(memo: memoData, text: self.memoTextView.text)
+        
         if isEditingMemo {
-            guard let memoData = self.memoData else { return }
-            memoData.updateDate = Date()
-            MemoDataDao.setTextByLines(memo: memoData, text: self.memoTextView.text)
             MemoDataDao.update(model: memoData)
         } else {
-            MemoDataDao.add(memoText: self.memoTextView.text)
+            MemoDataDao.add(newObject: memoData)
         }
     }
 }
 
 extension EditMemoController: MemoDataDaoDelegate {
-   // データベース処理完了通知
+    // データベース処理完了通知
     func result(type: ActionType, error: Error?) {
         // 遷移元のVCを取得して値渡し
         guard
             let navigationController = self.navigationController,
             let memoListController = navigationController.viewControllers[navigationController.viewControllers.count - 2] as? MemoListController else {
-            // 何もせずに戻る
-            self.navigationController?.popViewController(animated: true)
-            return
+                // 何もせずに戻る
+                self.navigationController?.popViewController(animated: true)
+                return
         }
         // 結果をリスト画面に渡して戻る
         memoListController.databaseActionType = type

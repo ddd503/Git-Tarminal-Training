@@ -29,6 +29,7 @@
 		4564DAB520FCC002003BE4D5 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAB420FCC002003BE4D5 /* Memo.swift */; };
 		4564DAB720FCC116003BE4D5 /* MemoDataDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAB620FCC116003BE4D5 /* MemoDataDao.swift */; };
 		4564DAB920FCC346003BE4D5 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAB820FCC346003BE4D5 /* RealmDaoHelper.swift */; };
+		45B5C60A210CDF4800617FBE /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5C609210CDF4800617FBE /* ErrorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		4564DAB420FCC002003BE4D5 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		4564DAB620FCC116003BE4D5 /* MemoDataDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDataDao.swift; sourceTree = "<group>"; };
 		4564DAB820FCC346003BE4D5 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
+		45B5C609210CDF4800617FBE /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		4564DA7F20FBB37C003BE4D5 /* Git-Tarminal-Training */ = {
 			isa = PBXGroup;
 			children = (
+				45B5C608210CDF3400617FBE /* Common */,
 				4564DAA120FBB398003BE4D5 /* MemoList */,
 				4564DAA520FBB49A003BE4D5 /* Memo */,
 				4564DAA920FBB4FC003BE4D5 /* Helper */,
@@ -232,6 +235,14 @@
 				4564DAAF20FC6E47003BE4D5 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45B5C608210CDF3400617FBE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				45B5C609210CDF4800617FBE /* ErrorType.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				452D140820FCE2DD00B5A884 /* MemoCell.swift in Sources */,
+				45B5C60A210CDF4800617FBE /* ErrorType.swift in Sources */,
 				4505C73A2104D37300B08542 /* Date+Style.swift in Sources */,
 				4505C73E2108C37700B08542 /* ResultView.swift in Sources */,
 				4564DAB720FCC116003BE4D5 /* MemoDataDao.swift in Sources */,
