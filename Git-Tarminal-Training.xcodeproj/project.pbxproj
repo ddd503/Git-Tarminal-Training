@@ -31,6 +31,7 @@
 		45B5C60A210CDF4800617FBE /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5C609210CDF4800617FBE /* ErrorType.swift */; };
 		45B5C60C210D712600617FBE /* MemoDataDaoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5C60B210D712600617FBE /* MemoDataDaoTest.swift */; };
 		45B5C60F210D81E200617FBE /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5C60E210D81E200617FBE /* String+Date.swift */; };
+		45B5C612210DDEA100617FBE /* MemoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5C611210DDEA100617FBE /* MemoTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		45B5C609210CDF4800617FBE /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		45B5C60B210D712600617FBE /* MemoDataDaoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDataDaoTest.swift; sourceTree = "<group>"; };
 		45B5C60E210D81E200617FBE /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		45B5C611210DDEA100617FBE /* MemoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				45B5C60B210D712600617FBE /* MemoDataDaoTest.swift */,
+				45B5C611210DDEA100617FBE /* MemoTest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B5C60C210D712600617FBE /* MemoDataDaoTest.swift in Sources */,
+				45B5C612210DDEA100617FBE /* MemoTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
