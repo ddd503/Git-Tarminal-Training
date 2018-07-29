@@ -31,6 +31,7 @@ class MemoDataDaoTest: XCTestCase, MemoDataDaoDelegate {
     /// 各テストの終わりに走る
     override func tearDown() {
         super.tearDown()
+        MemoDataDao.deleteAll()
     }
     
     /// 新規作成時にユニークのIDを割り振るテスト
