@@ -93,6 +93,7 @@ class EditMemoController: UIViewController {
             self.result(type: isEditingMemo ? .update : .add, error: AppError.notFoundMemo)
             return
         }
+        memoData.updateDate = Date()
         // 1行目のみタイトルとして保存
         MemoDataDao.setTextByLines(memo: memoData, text: self.memoTextView.text)
         

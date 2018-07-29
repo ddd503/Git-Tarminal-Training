@@ -23,13 +23,14 @@
 		4564DA8120FBB37C003BE4D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DA8020FBB37C003BE4D5 /* AppDelegate.swift */; };
 		4564DA8820FBB37D003BE4D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4564DA8720FBB37D003BE4D5 /* Assets.xcassets */; };
 		4564DA8B20FBB37D003BE4D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4564DA8920FBB37D003BE4D5 /* LaunchScreen.storyboard */; };
-		4564DA9620FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DA9520FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift */; };
 		4564DAAB20FBB5BC003BE4D5 /* MemoListController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4564DAAA20FBB5BC003BE4D5 /* MemoListController.storyboard */; };
 		4564DAAD20FBB5CB003BE4D5 /* MemoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAAC20FBB5CB003BE4D5 /* MemoListController.swift */; };
 		4564DAB520FCC002003BE4D5 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAB420FCC002003BE4D5 /* Memo.swift */; };
 		4564DAB720FCC116003BE4D5 /* MemoDataDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAB620FCC116003BE4D5 /* MemoDataDao.swift */; };
 		4564DAB920FCC346003BE4D5 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564DAB820FCC346003BE4D5 /* RealmDaoHelper.swift */; };
 		45B5C60A210CDF4800617FBE /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5C609210CDF4800617FBE /* ErrorType.swift */; };
+		45B5C60C210D712600617FBE /* MemoDataDaoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5C60B210D712600617FBE /* MemoDataDaoTest.swift */; };
+		45B5C60F210D81E200617FBE /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5C60E210D81E200617FBE /* String+Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +77,6 @@
 		4564DA8A20FBB37D003BE4D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4564DA8C20FBB37D003BE4D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4564DA9120FBB37D003BE4D5 /* Git-Tarminal-TrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Git-Tarminal-TrainingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4564DA9520FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git_Tarminal_TrainingTests.swift; sourceTree = "<group>"; };
 		4564DA9720FBB37D003BE4D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4564DAAA20FBB5BC003BE4D5 /* MemoListController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoListController.storyboard; sourceTree = "<group>"; };
 		4564DAAC20FBB5CB003BE4D5 /* MemoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListController.swift; sourceTree = "<group>"; };
@@ -86,6 +86,8 @@
 		4564DAB620FCC116003BE4D5 /* MemoDataDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDataDao.swift; sourceTree = "<group>"; };
 		4564DAB820FCC346003BE4D5 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
 		45B5C609210CDF4800617FBE /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		45B5C60B210D712600617FBE /* MemoDataDaoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDataDaoTest.swift; sourceTree = "<group>"; };
+		45B5C60E210D81E200617FBE /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +146,7 @@
 		4564DA9420FBB37D003BE4D5 /* Git-Tarminal-TrainingTests */ = {
 			isa = PBXGroup;
 			children = (
-				4564DA9520FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift */,
+				45B5C610210DDA4000617FBE /* Model */,
 				4564DA9720FBB37D003BE4D5 /* Info.plist */,
 			);
 			path = "Git-Tarminal-TrainingTests";
@@ -224,6 +226,7 @@
 				4505C73B21076C7500B08542 /* String+Lines.swift */,
 				4505C73D2108C37700B08542 /* ResultView.swift */,
 				4523C4A3210C22A900E5F46F /* String+Localized.swift */,
+				45B5C60E210D81E200617FBE /* String+Date.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -243,6 +246,14 @@
 				45B5C609210CDF4800617FBE /* ErrorType.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		45B5C610210DDA4000617FBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45B5C60B210D712600617FBE /* MemoDataDaoTest.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B5C60F210D81E200617FBE /* String+Date.swift in Sources */,
 				452D140820FCE2DD00B5A884 /* MemoCell.swift in Sources */,
 				45B5C60A210CDF4800617FBE /* ErrorType.swift in Sources */,
 				4505C73A2104D37300B08542 /* Date+Style.swift in Sources */,
@@ -388,7 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4564DA9620FBB37D003BE4D5 /* Git_Tarminal_TrainingTests.swift in Sources */,
+				45B5C60C210D712600617FBE /* MemoDataDaoTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

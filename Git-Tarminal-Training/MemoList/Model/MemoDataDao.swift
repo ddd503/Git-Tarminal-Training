@@ -46,13 +46,11 @@ final class MemoDataDao {
         if let newId = daoHelper.newId() {
             newObject.memoId = newId
         }
-        newObject.updateDate = Date()
         MemoDataDao.memoDataDaoDelegate?.result(type: .add, error: daoHelper.add(d: newObject))
     }
     
     // 更新
     static func update(model: Memo) {
-        model.updateDate = Date()
         MemoDataDao.memoDataDaoDelegate?.result(type: .update, error: daoHelper.update(d: model, block: nil))
     }
     
