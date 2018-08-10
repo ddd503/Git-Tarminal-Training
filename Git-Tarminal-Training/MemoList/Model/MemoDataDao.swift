@@ -9,7 +9,7 @@
 import RealmSwift
 import Foundation
 
-protocol MemoDataDaoDelegate {
+protocol MemoDataDaoDelegate: class {
     func result(type: ActionType, error: Error?)
 }
 
@@ -27,7 +27,7 @@ final class MemoDataDao {
     static let daoHelper = RealmDaoHelper<Memo>()
     
     // プロトコルプロパティを用意
-    static var memoDataDaoDelegate: MemoDataDaoDelegate?
+    static weak var memoDataDaoDelegate: MemoDataDaoDelegate?
     
     // 1件取得
     static func selectID(memoId: Int) -> Memo? {

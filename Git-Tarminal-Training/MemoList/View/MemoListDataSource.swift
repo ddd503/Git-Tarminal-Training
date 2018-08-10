@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MemoListDataSourceDelegate {
+protocol MemoListDataSourceDelegate: class {
     func delete(index: Int)
     func updateTableViewSeparator(isEmpty: Bool)
 }
@@ -23,7 +23,7 @@ final class MemoListDataSource: NSObject {
             }
         }
     }
-    var delegate: MemoListDataSourceDelegate?
+    weak var delegate: MemoListDataSourceDelegate?
     // tableViewのSeparatorの表示状態を管理
     var isHiddenTableViewSeparator = true
 }
@@ -41,7 +41,7 @@ extension MemoListDataSource: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             self.delegate?.delete(index: indexPath.row)
         }

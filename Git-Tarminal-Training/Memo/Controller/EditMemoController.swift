@@ -63,7 +63,7 @@ class EditMemoController: UIViewController {
         style.lineSpacing = lineSpacing
         let attributes = [kCTParagraphStyleAttributeName : style]
         self.memoTextView.attributedText = NSAttributedString(string: self.memoTextView.text,
-                                                              attributes: attributes as [NSAttributedStringKey : Any])
+                                                              attributes: attributes as [NSAttributedString.Key : Any])
         // フォントはattributedTextをいじった後に変更しないとリセットされてしまう
         self.memoTextView.font = UIFont.systemFont(ofSize: fontSize)
     }

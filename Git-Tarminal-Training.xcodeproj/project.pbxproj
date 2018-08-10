@@ -311,9 +311,11 @@
 				TargetAttributes = {
 					4564DA7C20FBB37C003BE4D5 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					4564DA9020FBB37D003BE4D5 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 4564DA7C20FBB37C003BE4D5;
 					};
 				};
@@ -572,7 +574,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Git-Tarminal-Training";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -594,7 +596,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Git-Tarminal-Training";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -614,7 +616,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Git-Tarminal-TrainingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Git-Tarminal-Training.app/Git-Tarminal-Training";
 			};
@@ -635,7 +637,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kawahara.Git-Tarminal-TrainingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Git-Tarminal-Training.app/Git-Tarminal-Training";
 			};
